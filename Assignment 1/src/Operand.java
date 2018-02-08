@@ -17,6 +17,8 @@ public class Operand {
   }
 
   public static boolean check( String token ) {
+      int tokenToInteger = Integer.parseInt(token);
+      if (tokenToInteger < )
       return false;
   }
 }
