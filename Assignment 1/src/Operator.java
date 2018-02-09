@@ -11,7 +11,7 @@ public abstract class Operator {
     // HashMap operators = new HashMap();
     // operators.put( "+", new AdditionOperator() );
     // operators.put( "-", new SubtractionOperator() );
-    private static HashMap operators = new HashMap();
+    private static HashMap<String,Operator> operators = new HashMap<String,Operator>();
     static {   
         operators.put("+", new AdditionOperator() );
         operators.put("-", new SubtractionOperator() );
@@ -27,6 +27,10 @@ public abstract class Operator {
     public abstract Operand execute(Operand op1, Operand op2);
 
   public static boolean check(String token) {
-        return operators.containsValue(token);
+        return operators.containsKey(token);
     }
+  
+  public static Operator getFunction(String token){
+      return operators.get(token);
+  }
 }
