@@ -1,6 +1,16 @@
+package expressionevaluator;
+
 import java.util.*;
 
 public abstract class Operator {
+    String token;
+    public Operator(){
+        token = null;
+    }
+    
+    public Operator(String token){
+        operators.get(token);
+    }
     // The Operator class should contain an instance of a HashMap
     // This map will use keys as the tokens we're interested in,
     // and values will be instances of the Operators.
@@ -11,7 +21,7 @@ public abstract class Operator {
     // HashMap operators = new HashMap();
     // operators.put( "+", new AdditionOperator() );
     // operators.put( "-", new SubtractionOperator() );
-    private static HashMap<String,Operator> operators = new HashMap<String,Operator>();
+    private static final HashMap<String,Operator> operators = new HashMap<String,Operator>();
     static {   
         operators.put("+", new AdditionOperator() );
         operators.put("-", new SubtractionOperator() );
@@ -26,11 +36,20 @@ public abstract class Operator {
 
     public abstract Operand execute(Operand op1, Operand op2);
 
-  public static boolean check(String token) {
+    public static boolean check(String token) {
         return operators.containsKey(token);
     }
   
-  public static Operator getFunction(String token){
-      return operators.get(token);
-  }
-}
+    public static Operator getOperator(String token) throws InvalidTokenException {
+        if (!check(token))
+            throw new InvalidTokenException("Invalid Operator");
+        else
+             return operators.get(token);
+    }
+    
+    public void setOperator(Operator operator, String token) throws InvalidTokenException {
+        operator = getOperator(token);
+    }
+       
+ }
+

@@ -1,3 +1,5 @@
+package expressionevaluator;
+
 public class Operand {
 
   private int value;  
@@ -17,10 +19,11 @@ public class Operand {
   }
 
   public static boolean check( String token ) {
-      if (token == null) return false;
+      int size = token.length();
+      if (size == 0) return false;
       else {
-          int length = token.length();
           int i = 0;
+          if (token.charAt(0)=='-') i++;
          do { 
               if (Character.isDigit(token.charAt(i))) {
                   i++;
@@ -29,7 +32,7 @@ public class Operand {
               else {
                   return false;
               }
-          } while (Character.isDigit(token.charAt(i)) && i < length);
+          } while (Character.isDigit(token.charAt(i)) && i < size);
       }
   }
   

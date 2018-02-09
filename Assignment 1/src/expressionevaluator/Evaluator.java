@@ -1,4 +1,4 @@
-
+package expressionevaluator;
 import java.util.*;
 
 public class Evaluator {
@@ -14,7 +14,7 @@ public class Evaluator {
         operatorStack = new Stack<>();
     }
     
-    public int eval(String expression) {
+    public int eval(String expression) throws InvalidTokenException {
         String token;
 
         // The 3rd argument is true to indicate that the delimiters should be used
@@ -22,7 +22,6 @@ public class Evaluator {
         this.tokenizer = new StringTokenizer(expression, DELIMITERS, true);
 
         // initialize operator stack - necessary with operator priority schema
-        Evaluator newEvaluator = new Evaluator();
         // the priority of any operator in the operator stack other than
         // the usual mathematical operators - "+-*/" - should be less than the priority
         // of the usual operators
@@ -46,7 +45,7 @@ public class Evaluator {
                     // The Operator class should contain an instance of a HashMap,
                     // and values will be instances of the Operators.  See Operator class
                     // skeleton for an example.
-                    Operator newOperator = new Operator(token);
+                    Operator newOperator = Operator.getOperator(token);
 
                     while (operatorStack.peek().priority() >= newOperator.priority()) {
                         // note that when we eval the expression 1 - 2 we will
@@ -77,4 +76,6 @@ public class Evaluator {
         // method
         return 0;
     }
+
+ 
 }
