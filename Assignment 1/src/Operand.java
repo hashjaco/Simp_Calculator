@@ -1,10 +1,10 @@
 public class Operand {
 
-  int value;  
+  private int value;  
     
   public Operand( String token ) {
-      if (check(token)==true){
-          
+      if (check(token)){
+          this.value = Integer.parseInt(token);
       }
   }
 
@@ -17,8 +17,20 @@ public class Operand {
   }
 
   public static boolean check( String token ) {
-      int tokenToInteger = Integer.parseInt(token);
-      if (tokenToInteger < )
-      return false;
+      if (token == null) return false;
+      else {
+          int length = token.length();
+          int i = 0;
+         do { 
+              if (Character.isDigit(token.charAt(i))) {
+                  i++;
+                  return true;
+              }
+              else {
+                  return false;
+              }
+          } while (Character.isDigit(token.charAt(i)) && i < length);
+      }
   }
+  
 }

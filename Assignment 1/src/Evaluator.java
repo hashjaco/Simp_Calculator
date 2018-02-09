@@ -5,7 +5,7 @@ public class Evaluator {
   private Stack<Operator> operatorStack;
 
   private StringTokenizer tokenizer;
-  private static final String DELIMITERS = "+-*^/#! ";
+  private static final String DELIMITERS = "+-*^/#!% ";
 
   public Evaluator() {
     operandStack = new Stack<>();
@@ -20,6 +20,7 @@ public class Evaluator {
     this.tokenizer = new StringTokenizer( expression, DELIMITERS, true );
 
     // initialize operator stack - necessary with operator priority schema
+    Evaluator newEvaluator = new Evaluator();
     // the priority of any operator in the operator stack other than
     // the usual mathematical operators - "+-*/" - should be less than the priority
     // of the usual operators
