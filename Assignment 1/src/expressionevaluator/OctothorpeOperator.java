@@ -14,8 +14,7 @@ public class OctothorpeOperator extends Operator{
 
     @Override
     public Operand execute(Operand op1, Operand op2) {
-        Operand newOperand = new Operand(op1.getValue()+op2.getValue());
-        return newOperand;
+        return null;
     }
     
 }

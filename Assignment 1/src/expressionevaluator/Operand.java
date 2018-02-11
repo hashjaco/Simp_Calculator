@@ -34,6 +34,5 @@ public class Operand {
               }
           } while (Character.isDigit(token.charAt(i)) && i < size);
       }
-  }
-  
+  } 
 }

@@ -3,19 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/Operator.java</file>
             <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/Operand.java</file>
             <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/AdditionOperator.java</file>
+            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/EvaluatorTester.java</file>
             <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/DivisionOperator.java</file>
+            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/ModulusOperator.java</file>
             <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/ExponentOperator.java</file>
+            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/SubtractionOperator.java</file>
             <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/MultiplicationOperator.java</file>
+            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/ExclamationOperator.java</file>
             <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/OctothorpeOperator.java</file>
             <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/Evaluator.java</file>
-            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/InvalidTokenException.java</file>
-            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/Operator.java</file>
-            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/EvaluatorTester.java</file>
-            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/ModulusOperator.java</file>
-            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/SubtractionOperator.java</file>
-            <file>file:/C:/Users/hjaco/OneDrive/Documents/CSC/csc413-p1-hashjaco-master/csc413-p1-hashjaco-master/Assignment%201/src/expressionevaluator/ExclamationOperator.java</file>
         </group>
     </open-files>
 </project-private>

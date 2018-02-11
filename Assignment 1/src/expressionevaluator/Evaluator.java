@@ -14,9 +14,11 @@ public class Evaluator {
         operatorStack = new Stack<>();
     }
     
-    public int eval(String expression) throws InvalidTokenException {
+    public int eval(String expression) {
         String token;
-
+        operandStack.clear();
+        operatorStack.clear();
+        expression = expression + "!";
         // The 3rd argument is true to indicate that the delimiters should be used
         // as tokens, too. But, we'll need to remember to filter out spaces.
         this.tokenizer = new StringTokenizer(expression, DELIMITERS, true);
@@ -27,7 +29,7 @@ public class Evaluator {
         // of the usual operators
 
         // TODO Operator is abstract - this will need to be fixed:
-        // operatorStack.push( new Operator( "#" ));
+        operatorStack.push(Operator.getOperator("#"));
         // When is it a good time to add the "!" operator?
         while (this.tokenizer.hasMoreTokens()) {
             // filter out spaces
@@ -74,8 +76,14 @@ public class Evaluator {
         // Suggestion: create a method that takes an operator as argument and
         // then executes the while loop; also, move the stacks out of the main
         // method
+        while (!(Operator.getOperator("#").equals(operatorStack.peek()))){
+            Operator nextOperator = operatorStack.pop();
+            Operand op1 = operandStack.pop();
+            Operand op2 = operandStack.pop();
+            operandStack.push(nextOperator.execute(op1,op2));
+        }
         
-        return 0;
+        return operandStack.peek().getValue();
     }
 
  
