@@ -1,0 +1,18 @@
+Author: Hashim Jacobs
+Package: Evaluator
+
+Introduction
+
+Description:
+The Evaluator Program and it's GUI displays a calculator that evaluates an expression input by the user. The user clicks the buttons corresponding to the numbers and operators they desire. Upon clicking the equality operator, the solution is displayed in the text field.
+
+Implementation:
+The program and it's UI were implemented in Java and compiled by Netbeans.
+
+Requirements:
+
+1) Program utility classes Operand and Operator (COMPLETE). Also, program extensions of Operator class (COMPLETE).
+2) Complete Evaluator class and test successfully (COMPLETE).
+	*The Evaluator implements a single public method, eval, that takes a single String parameter that represents an infix mathematical expression, parses and evaluates the expression, and returns the integer result.
+3) Complete the programming for the EvaluatorUI by utilizing Evaluator class (COMPLETE).
+

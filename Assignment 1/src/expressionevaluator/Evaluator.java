@@ -1,4 +1,5 @@
 package expressionevaluator;
+
 import java.util.*;
 
 public class Evaluator {
@@ -13,12 +14,26 @@ public class Evaluator {
         operandStack = new Stack<>();
         operatorStack = new Stack<>();
     }
-    
+
+    public void priorityEval(String token, Operator newOperator) {
+        newOperator = Operator.getOperator(token);
+        while (operatorStack.peek().priority() >= newOperator.priority()) {
+            // note that when we eval the expression 1 - 2 we will
+            // push the 1 then the 2 and then do the subtraction operation
+            // This means that the first number to be popped is the
+            // second operand, not the first operand - see the following code
+            Operator oldOpr = operatorStack.pop();
+            Operand op2 = operandStack.pop();
+            Operand op1 = operandStack.pop();
+            operandStack.push(oldOpr.execute(op1, op2));
+        }
+    }
+
     public int eval(String expression) {
         String token;
         operandStack.clear();
         operatorStack.clear();
-        expression = expression + "!";
+        /*expression = expression + "!";*/
         // The 3rd argument is true to indicate that the delimiters should be used
         // as tokens, too. But, we'll need to remember to filter out spaces.
         this.tokenizer = new StringTokenizer(expression, DELIMITERS, true);
@@ -27,39 +42,48 @@ public class Evaluator {
         // the priority of any operator in the operator stack other than
         // the usual mathematical operators - "+-*/" - should be less than the priority
         // of the usual operators
-
         // TODO Operator is abstract - this will need to be fixed:
         operatorStack.push(Operator.getOperator("#"));
         // When is it a good time to add the "!" operator?
+
         while (this.tokenizer.hasMoreTokens()) {
+            token = this.tokenizer.nextToken();
             // filter out spaces
-            if (!(token = this.tokenizer.nextToken()).equals(" ")) {
+            if (!(token.equals(" "))) {
                 // check if token is an operand
                 if (Operand.check(token)) {
                     operandStack.push(new Operand(token));
-                } else {
-                    if (!Operator.check(token)) {
-                        System.out.println("*****invalid token******");
-                        System.exit(1);
-                    }
-
-                    // TODO Operator is abstract - these two lines will need to be fixed:
-                    // The Operator class should contain an instance of a HashMap,
-                    // and values will be instances of the Operators.  See Operator class
-                    // skeleton for an example.
-                    Operator newOperator = Operator.getOperator(token);
-
-                    while (operatorStack.peek().priority() >= newOperator.priority()) {
-                        // note that when we eval the expression 1 - 2 we will
-                        // push the 1 then the 2 and then do the subtraction operation
-                        // This means that the first number to be popped is the
-                        // second operand, not the first operand - see the following code
+                } else if (token.equals('(')) {
+                    operatorStack.push(Operator.getOperator(token));
+                } else if (token.equals(')')) {
+                    while (operatorStack.peek() != Operator.getOperator("(")) {
                         Operator oldOpr = operatorStack.pop();
                         Operand op2 = operandStack.pop();
                         Operand op1 = operandStack.pop();
                         operandStack.push(oldOpr.execute(op1, op2));
                     }
+                    operatorStack.pop();
+                } else if (!Operator.check(token)) {
+                    System.out.println("*****invalid token******");
+                    System.exit(1);
+                } // TODO Operator is abstract - these two lines will need to be fixed:
+                // The Operator class should contain an instance of a HashMap,
+                // and values will be instances of the Operators.  See Operator class
+                // skeleton for an example.
+                else {
+                    Operator newOperator = Operator.getOperator(token);
 
+                    priorityEval(token, newOperator);
+                    /*while (operatorStack.peek().priority() >= newOperator.priority()) {
+                    // note that when we eval the expression 1 - 2 we will
+                    // push the 1 then the 2 and then do the subtraction operation
+                    // This means that the first number to be popped is the
+                    // second operand, not the first operand - see the following code
+                    Operator oldOpr = operatorStack.pop();
+                    Operand op2 = operandStack.pop();
+                    Operand op1 = operandStack.pop();
+                    operandStack.push(oldOpr.execute(op1, op2));
+                }*/
                     operatorStack.push(newOperator);
                 }
             }
@@ -76,15 +100,13 @@ public class Evaluator {
         // Suggestion: create a method that takes an operator as argument and
         // then executes the while loop; also, move the stacks out of the main
         // method
-        while (!(Operator.getOperator("#").equals(operatorStack.peek()))){
+        while (operatorStack.peek().priority() != 0) {
             Operator nextOperator = operatorStack.pop();
-            Operand op1 = operandStack.pop();
             Operand op2 = operandStack.pop();
-            operandStack.push(nextOperator.execute(op1,op2));
+            Operand op1 = operandStack.pop();
+            operandStack.push(nextOperator.execute(op1, op2));
         }
-        
         return operandStack.peek().getValue();
     }
 
- 
 }

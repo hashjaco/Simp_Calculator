@@ -2,20 +2,18 @@ import expressionevaluator.Evaluator;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class SimpleParenthesesTest {
+public class SimpleExpressionTest {
 
   @Test
-  public void testSimpleExpressionWithParens() {
+  public void testSimpleExpression() {
     Evaluator instance = new Evaluator();
 
-    final String expression = "(2+3)*4";
-    final int result = 20;
-    
+    final String expression = "2+3*4";
+    final int result = 14;
 
     assertEquals( instance.eval( expression ), result );
     
     instance.eval(expression);
-
   }
 
 }
