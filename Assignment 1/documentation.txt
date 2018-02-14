@@ -7,7 +7,7 @@ Description:
 The Evaluator Program and it's GUI displays a calculator that evaluates an expression input by the user. The user clicks the buttons corresponding to the numbers and operators they desire. Upon clicking the equality operator, the solution is displayed in the text field.
 
 Implementation:
-The program and it's UI were implemented in Java and compiled by Netbeans.
+The program and it's UI were implemented in Java and compiled within Netbeans.
 
 Requirements:
 
@@ -16,3 +16,16 @@ Requirements:
 	*The Evaluator implements a single public method, eval, that takes a single String parameter that represents an infix mathematical expression, parses and evaluates the expression, and returns the integer result.
 3) Complete the programming for the EvaluatorUI by utilizing Evaluator class (COMPLETE).
 
+To compile and run as a jar file:
+Open a notepad.exe.
+Write: java -jar <filename>.jar.
+Save it with the extension ".bat".
+Copy it to the directory that has the .jar file.
+Double click it to run <filename>.jar file.
+
+
+Implementation:
+
+To utilize all of the different operators efficiently, it was necessary to implement subclasses of the operator class and create an instance of a Hashmap containing all of the subclasses within the abstract Operator class. Being able to call an operator class by using it's key as an argument to perform the desired operation made life a bit easier. The only issue I had was getting the parentheses to work because for a while, my program was not reading them as valid operators even though I had created subclasses for them in order to push them onto the Operator stack. Because of that issue, the program would fail as it returned the error for the invalid token.
+
+I was a bit torn while deciding how to implement my eval method to take care of parentheses. There was the obvious if/else push/pop until...but I figured there was a way to do it recursively. However, to be honest, I was unsure of how much more efficient or inefficient it would have been.
