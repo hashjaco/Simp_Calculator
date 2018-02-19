@@ -1,15 +1,13 @@
 Author: Hashim Jacobs
 Package: Evaluator
+Github: github.com/hashjaco
 
 Introduction
 
 Description:
-The Evaluator Program and it's GUI displays a calculator that evaluates an expression input by the user. The user clicks the buttons corresponding to the numbers and operators they desire. Upon clicking the equality operator, the solution is displayed in the text field.
+The Evaluator Program and it's GUI displays a calculator that evaluates an expression input by the user. The user clicks the buttons corresponding to the numbers and operators they desire. Upon clicking the equality operator, the solution is displayed in the text field. The program and it's UI were implemented in Java and compiled within Netbeans.
 
-Implementation:
-The program and it's UI were implemented in Java and compiled within Netbeans.
-
-Requirements:
+Scope:
 
 1) Program utility classes Operand and Operator (COMPLETE). Also, program extensions of Operator class (COMPLETE).
 2) Complete Evaluator class and test successfully (COMPLETE).

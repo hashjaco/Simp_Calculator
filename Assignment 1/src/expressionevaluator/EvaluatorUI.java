@@ -48,8 +48,8 @@ public class EvaluatorUI extends JFrame implements ActionListener {
         }
 
         setTitle("Calculator");
-        setSize(400, 400);
-        /*setLocationByPlatxFieldorm(true);*/
+        setSize(400, 600);
+        setLocationByPlatform(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
     }
@@ -87,6 +87,7 @@ public class EvaluatorUI extends JFrame implements ActionListener {
         } else if (arg0.getSource() == buttons[13]) {
             txField.setText(txField.getText() + "0");
         } else if (arg0.getSource() == buttons[14]) {
+            //Equals operator
             txField.setText(Integer.toString(evaluator.eval(txField.getText())));
         } else if (arg0.getSource() == buttons[15]) {
             txField.setText(txField.getText() + "/");
@@ -95,8 +96,10 @@ public class EvaluatorUI extends JFrame implements ActionListener {
         } else if (arg0.getSource() == buttons[17]) {
             txField.setText(txField.getText() + ")");
         } else if (arg0.getSource() == buttons[18]) {
+            // Clear button
             txField.setText("");
         } else if (arg0.getSource() == buttons[19]) {
+            //Clear entry button
             txField.setText(txField.getText());
         }
         
